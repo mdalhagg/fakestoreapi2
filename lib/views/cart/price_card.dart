@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:fakestoreapi/controllers/cart.dart';
+import 'package:fakestoreapi2/controllers/cart.dart';
 
 class PriceCard extends StatelessWidget {
   const PriceCard(

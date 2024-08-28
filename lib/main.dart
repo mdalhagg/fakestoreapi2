@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:fakestoreapi/app.dart';
+import 'package:fakestoreapi2/app.dart';
 
 void main() async {
   await Hive.initFlutter().then((_) async {
@@ -11,8 +11,7 @@ void main() async {
     await Hive.openBox('user');
     await Hive.openBox('http_cache');
     await Hive.openBox('market');
-    await Hive.openBox('address');
-    await Hive.openBox('currency');
+    await Hive.openBox('orders');
     // var a = Hive.box('http_cache').toMap();
     // log("$a", name: "main");
   });

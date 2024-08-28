@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:fakestoreapi/controllers/cart.dart';
-import 'package:fakestoreapi/views/cart/decrement_button.dart';
-import 'package:fakestoreapi/views/cart/increment_button.dart';
-import 'package:fakestoreapi/views/cart/price_card.dart';
-import 'package:fakestoreapi/views/cart/product_image_card.dart';
-import 'package:fakestoreapi/views/cart/product_name_card.dart';
-import 'package:fakestoreapi/views/cart/quantity_card.dart';
-import 'package:fakestoreapi/theme/light_theme.dart';
+import 'package:fakestoreapi2/controllers/cart.dart';
+import 'package:fakestoreapi2/views/cart/decrement_button.dart';
+import 'package:fakestoreapi2/views/cart/increment_button.dart';
+import 'package:fakestoreapi2/views/cart/price_card.dart';
+import 'package:fakestoreapi2/views/cart/product_image_card.dart';
+import 'package:fakestoreapi2/views/cart/product_name_card.dart';
+import 'package:fakestoreapi2/views/cart/quantity_card.dart';
+import 'package:fakestoreapi2/theme/light_theme.dart';
 
 class CartItemCard extends StatelessWidget {
   const CartItemCard(

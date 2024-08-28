@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:fakestoreapi/components/app_component.dart';
-import 'package:fakestoreapi/controllers/cart.dart';
-import 'package:fakestoreapi/controllers/product_details_controller.dart';
-import 'package:fakestoreapi/models/product.dart';
-import 'package:fakestoreapi/models/product_cart.dart';
-import 'package:fakestoreapi/views/product_details/appbar_product_details.dart';
-import 'package:fakestoreapi/theme/light_theme.dart';
+import 'package:fakestoreapi2/components/app_component.dart';
+import 'package:fakestoreapi2/controllers/cart.dart';
+import 'package:fakestoreapi2/controllers/product_details_controller.dart';
+import 'package:fakestoreapi2/models/product.dart';
+import 'package:fakestoreapi2/models/product_cart.dart';
+import 'package:fakestoreapi2/views/product_details/appbar_product_details.dart';
+import 'package:fakestoreapi2/theme/light_theme.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   const ProductDetailsScreen({super.key, this.data});
@@ -87,8 +87,15 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                         widget.data?.description ?? '',
                                       ),
                                       const SizedBox(height: 20),
+                                      Text(
+                                        "Category:  ${widget.data?.category ?? ''}",
+                                        textDirection: TextDirection.ltr,
+                                      ),
                                       // price
-                                      Text("${widget.data?.price ?? ''}"),
+                                      const SizedBox(height: 20),
+
+                                      // price
+                                      Text("${widget.data?.price ?? ''} \$"),
                                       const SizedBox(height: 20),
                                     ]),
                               )),
@@ -260,7 +267,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                 context,
                                 item: ProductCart(
                                   quantity: quantity,
-                                  productId: product?.id,
+                                  productId: widget.data?.id,
                                   title: widget.data?.title,
                                   price: widget.data?.price,
                                   category: widget.data?.category,

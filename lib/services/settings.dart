@@ -3,8 +3,8 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:fakestoreapi/models/product_cart.dart';
-import 'package:fakestoreapi/models/user.dart';
+import 'package:fakestoreapi2/models/product_cart.dart';
+import 'package:fakestoreapi2/models/user.dart';
 
 class SettingsService {
   var settingsBox = Hive.box('settings');

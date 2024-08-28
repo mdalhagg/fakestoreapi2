@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:fakestoreapi/controllers/cart.dart';
+import 'package:fakestoreapi2/controllers/cart.dart';
 
 class ProductImageCard extends StatelessWidget {
   const ProductImageCard(

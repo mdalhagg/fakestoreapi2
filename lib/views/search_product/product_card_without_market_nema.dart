@@ -1,6 +1,6 @@
-import 'package:fakestoreapi/controllers/home_controller.dart';
+import 'package:fakestoreapi2/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:fakestoreapi/components/product_card.dart';
+import 'package:fakestoreapi2/components/product_card.dart';
 
 class ProductCardWithoutMarketName extends StatelessWidget {
   const ProductCardWithoutMarketName(

@@ -9,7 +9,7 @@ class AppHttpResponse {
   String? message;
 
   @HiveField(3)
-  Map<String, dynamic>? body;
+  dynamic? body;
 
   AppHttpResponse({
     this.statusCode,

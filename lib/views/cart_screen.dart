@@ -1,12 +1,11 @@
-
 import 'package:flutter/material.dart';
-import 'package:fakestoreapi/components/app_component.dart';
-import 'package:fakestoreapi/controllers/cart.dart';
-import 'package:fakestoreapi/router.dart';
-import 'package:fakestoreapi/views/cart/cart_item.dart';
-import 'package:fakestoreapi/views/cart/checkout_button.dart';
-import 'package:fakestoreapi/views/cart/delete_item.dart';
-import 'package:fakestoreapi/theme/light_theme.dart';
+import 'package:fakestoreapi2/components/app_component.dart';
+import 'package:fakestoreapi2/controllers/cart.dart';
+import 'package:fakestoreapi2/router.dart';
+import 'package:fakestoreapi2/views/cart/cart_item.dart';
+import 'package:fakestoreapi2/views/cart/checkout_button.dart';
+import 'package:fakestoreapi2/views/cart/delete_item.dart';
+import 'package:fakestoreapi2/theme/light_theme.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -103,9 +102,10 @@ class _CartScreenState extends State<CartScreen> {
                     ),
         ],
       ),
-      bottomNavigationBar: CheckoutButton(
-          totalPrice: totalPrice,
-          cartController: cartController,),
+      floatingActionButton: CheckoutButton(
+        totalPrice: totalPrice,
+        cartController: cartController,
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }

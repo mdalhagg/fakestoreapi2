@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:fakestoreapi/components/app_component.dart';
-import 'package:fakestoreapi/controllers/user.dart';
-import 'package:fakestoreapi/router.dart';
-import 'package:fakestoreapi/views/profile/floating_image_card.dart';
-import 'package:fakestoreapi/views/profile/setting_buttons.dart';
-import 'package:fakestoreapi/theme/light_theme.dart';
+import 'package:fakestoreapi2/components/app_component.dart';
+import 'package:fakestoreapi2/controllers/user.dart';
+import 'package:fakestoreapi2/router.dart';
+import 'package:fakestoreapi2/views/profile/floating_image_card.dart';
+import 'package:fakestoreapi2/views/profile/setting_buttons.dart';
+import 'package:fakestoreapi2/theme/light_theme.dart';
 
 class FloatingProfileCard extends StatelessWidget {
   const FloatingProfileCard({
@@ -42,7 +42,7 @@ class FloatingProfileCard extends StatelessWidget {
                 child: LoadingAnimationWidget.threeArchedCircle(
                     color: LightTheme.main, size: 50),
               )
-             : userController.noData
+            : userController.noData
                 ? const NoInternetCard()
                 : Positioned(
                     top: 120,
@@ -60,12 +60,29 @@ class FloatingProfileCard extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               SizedBox(
-                                width: MediaQuery.of(context).size.width -  200,
+                                width: MediaQuery.of(context).size.width - 200,
                                 child: Text(
                                   overflow: TextOverflow.ellipsis,
                                   settingsController.user?.username ?? '',
                                   style: const TextStyle(
-                                      fontSize: 20, fontWeight: FontWeight.bold),
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              SizedBox(width: 8),
+                              FaIcon(
+                                FontAwesomeIcons.edit,
+                                color: LightTheme.main,
+                                size: 20,
+                              ),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width - 200,
+                                child: Text(
+                                  overflow: TextOverflow.ellipsis,
+                                  settingsController.user?.email ?? '',
+                                  style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
                                 ),
                               ),
                               SizedBox(width: 8),

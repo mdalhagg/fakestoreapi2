@@ -1,12 +1,14 @@
+import 'package:fakestoreapi2/models/product.dart';
+import 'package:fakestoreapi2/views/product_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 // import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:fakestoreapi/controllers/settings.dart';
-import 'package:fakestoreapi/views/home_panel.dart';
-import 'package:fakestoreapi/views/splash_screen.dart';
-import 'package:fakestoreapi/views/cart_screen.dart';
-// import 'package:fakestoreapi/screens/map_screen.dart';
-import 'package:fakestoreapi/views/search_product_screen.dart';
+import 'package:fakestoreapi2/controllers/settings.dart';
+import 'package:fakestoreapi2/views/home_panel.dart';
+import 'package:fakestoreapi2/views/splash_screen.dart';
+import 'package:fakestoreapi2/views/cart_screen.dart';
+// import 'package:fakestoreapi2/screens/map_screen.dart';
+import 'package:fakestoreapi2/views/search_product_screen.dart';
 
 // GoRouter configuration
 final router = GoRouter(
@@ -75,6 +77,24 @@ final router = GoRouter(
           reverseTransitionDuration: const Duration(milliseconds: 700),
           key: state.pageKey,
           child: const CartScreen(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity:
+                  CurveTween(curve: Curves.easeInOutCirc).animate(animation),
+              child: child,
+            );
+          },
+        );
+      },
+    ),
+    GoRoute(
+      path: '/product-details',
+      pageBuilder: (context, state) {
+        return CustomTransitionPage(
+          transitionDuration: const Duration(microseconds: 700),
+          reverseTransitionDuration: const Duration(milliseconds: 700),
+          key: state.pageKey,
+          child: ProductDetailsScreen(data: state.extra as Product),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(
               opacity:

@@ -1,4 +1,4 @@
-# fakestoreapi
+# fakestoreapi2
 
 A new Flutter project.
 

@@ -1,10 +1,10 @@
 import 'dart:developer';
 
-import 'package:fakestoreapi/models/product.dart';
+import 'package:fakestoreapi2/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:fakestoreapi/apis.dart';
-import 'package:fakestoreapi/services/http.dart';
+import 'package:fakestoreapi2/apis.dart';
+import 'package:fakestoreapi2/services/http.dart';
 
 class HomeController extends ChangeNotifier {
   final RefreshController refreshController = RefreshController();
@@ -47,7 +47,7 @@ class HomeController extends ChangeNotifier {
       (value) async {
         hasError = false;
         isLoading = false;
-        if (value.isNotEmpty) {
+        if (value != null) {
           home = List<Product>.from(
             value.map(
               (e) => Product.fromJson(e),
@@ -71,7 +71,7 @@ class HomeController extends ChangeNotifier {
     if (hasError) {
       await HTTPService.getCachedResponse(url: API.products)
           .then((value) async {
-        if (value.isNotEmpty) {
+        if (value == null) {
           home = List<Product>.from(
             value.map(
               (e) => Product.fromJson(e),

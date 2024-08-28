@@ -4,11 +4,11 @@ import 'dart:developer';
 
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:fakestoreapi/components/dialogs/loading.dart';
-import 'package:fakestoreapi/components/snackbar.dart';
-import 'package:fakestoreapi/models/product_cart.dart';
-import 'package:fakestoreapi/router.dart';
-import 'package:fakestoreapi/services/settings.dart';
+import 'package:fakestoreapi2/components/dialogs/loading.dart';
+import 'package:fakestoreapi2/components/snackbar.dart';
+import 'package:fakestoreapi2/models/product_cart.dart';
+import 'package:fakestoreapi2/router.dart';
+import 'package:fakestoreapi2/services/settings.dart';
 import 'package:flutter/material.dart';
 
 class CartController extends ChangeNotifier {
@@ -22,6 +22,10 @@ class CartController extends ChangeNotifier {
   int discount = 0;
   int deliveryPrice = 0;
   int totalPrice = 0;
+  TextEditingController nameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+  TextEditingController paymentController = TextEditingController();
   var marketBox = Hive.box('market');
 
   Future<void> load() async {
@@ -151,6 +155,28 @@ class CartController extends ChangeNotifier {
     notifyListeners();
   }
 
+  addOrder(BuildContext context) async {
+    notifyListeners();
+    // add order on hive storage
+    var ordersBox = Hive.box('orders');
+    var order = Order(
+      id: '1',
+      deliveryPrice: totalPrice.toString(),
+      payment: "",
+      discount: "",
+      cart: cart,
+    );
+
+    // clear cart
+    await _settingsService.clearCart();
+    await settingsController.loadSettings();
+    ordersBox.add(order.toJson());
+    notifyListeners();
+    context.go('/home');
+
+    successSnackbar(context, message: "تمت الاضافة بنجاح");
+  }
+
   // Future<void> addFromOrder(Order? order) async {
   //   for (int i = 0; i < (order?.orderDetails?.length ?? 0); i++) {
   //     OrderDetails? orderDetails = order?.orderDetails?[i];
@@ -172,4 +198,53 @@ class CartController extends ChangeNotifier {
   //     );
   //   }
   // }
+}
+
+class Order {
+  String? id;
+  String? address;
+  String? order;
+  String? discount;
+  String? deliveryPrice;
+  String? payment;
+  List<ProductCart>? cart;
+
+  Order({
+    this.id,
+    this.address,
+    this.order,
+    this.discount,
+    this.deliveryPrice,
+    this.payment,
+    this.cart,
+  });
+
+  Order.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    address = json['address'];
+    order = json['order'];
+    discount = json['discount'];
+    deliveryPrice = json['deliveryPrice'];
+    payment = json['payment'];
+    if (json['cart'] != null) {
+      cart = <ProductCart>[];
+      json['cart'].forEach((v) {
+        cart!.add(new ProductCart.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['address'] = this.address;
+    data['order'] = this.order;
+    data['discount'] = this.discount;
+    data['deliveryPrice'] = this.deliveryPrice;
+    data['payment'] = this.payment;
+    if (this.cart != null) {
+      data['cart'] = this.cart!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
 }

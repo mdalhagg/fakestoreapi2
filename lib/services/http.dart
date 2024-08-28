@@ -3,9 +3,11 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:fakestoreapi/apis.dart';
+import 'package:fakestoreapi2/apis.dart';
+import 'package:fakestoreapi2/models/http_exception.dart';
 import 'package:http/http.dart' as http;
-import 'package:fakestoreapi/models/http_response.dart';
+import 'package:fakestoreapi2/models/http_response.dart';
+import 'package:fakestoreapi2/router.dart';
 
 class HTTPService {
   static Map<String, String> baseHeaders = {
@@ -27,7 +29,7 @@ class HTTPService {
         Uri.parse("${API.baseUrl}$endpoint"),
         headers: requestHeaders,
       );
-      response.body;
+
       AppHttpResponse localCacheResponse = AppHttpResponse(
           body: jsonDecode(response.body),
           statusCode: response.statusCode,
@@ -38,7 +40,6 @@ class HTTPService {
         log('Cache Save Successfully');
       });
     } catch (e) {
-      // log("$e");
 
       return _handleResponse(
         http.Response(
@@ -142,6 +143,24 @@ class HTTPService {
       if (statusCode >= 200 && statusCode < 300) {
         // log("$responseBody", name: "HTTPService");
         return responseBody;
+      } else {
+        if (statusCode == 401) {
+          // clear user data in app and navigate to splash screen
+          var user = settingsController.user;
+          if (user != null) {
+            settingsController.updateUser(null).then((value) async {
+              await settingsController.clearCart().then((_) async {
+                await Future.delayed(const Duration(seconds: 2), () {
+                  router.go('/');
+                });
+              });
+            });
+          }
+        }
+        throw HTTPException(
+          statusCode,
+          responseBody['message'] ?? response.reasonPhrase,
+        );
       }
     } on FormatException {
       throw "تاكد من اتصالك بالانترنت";

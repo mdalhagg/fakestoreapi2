@@ -1,11 +1,10 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:fakestoreapi/models/product.dart';
-import 'package:fakestoreapi/theme/light_theme.dart';
+import 'package:fakestoreapi2/models/product.dart';
+import 'package:fakestoreapi2/theme/light_theme.dart';
 
 class ProductCard extends StatefulWidget {
   const ProductCard({super.key, this.index, this.data, this.then});
@@ -100,8 +99,14 @@ class _ProductCardState extends State<ProductCard> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(widget.data?.title ?? '',
-                          style: LightTheme.textStyle(fontSize: 18)),
+                      SizedBox(
+                        width: 200,
+                        child: Text(
+                          widget.data?.title ?? '',
+                          style: LightTheme.textStyle(fontSize: 18),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
                       SizedBox(
                         width: 150,
                         child: Text(widget.data?.description ?? '',

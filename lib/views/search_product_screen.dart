@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:fakestoreapi/components/app_component.dart';
-import 'package:fakestoreapi/controllers/home_controller.dart';
-import 'package:fakestoreapi/router.dart';
-import 'package:fakestoreapi/views/search_product/product_search_card.dart';
-import 'package:fakestoreapi/theme/light_theme.dart';
+import 'package:fakestoreapi2/components/app_component.dart';
+import 'package:fakestoreapi2/controllers/home_controller.dart';
+import 'package:fakestoreapi2/router.dart';
+import 'package:fakestoreapi2/views/search_product/product_search_card.dart';
+import 'package:fakestoreapi2/theme/light_theme.dart';
 
 class SearchProductsScreen extends StatefulWidget {
   const SearchProductsScreen({super.key});

@@ -3,15 +3,15 @@ import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:fakestoreapi/apis.dart';
-import 'package:fakestoreapi/components/dialogs/error.dart';
-import 'package:fakestoreapi/components/dialogs/error_snackbar.dart';
-import 'package:fakestoreapi/components/dialogs/loading.dart';
-import 'package:fakestoreapi/components/snackbar.dart';
-import 'package:fakestoreapi/models/http_exception.dart';
-import 'package:fakestoreapi/models/user.dart';
-import 'package:fakestoreapi/router.dart';
-import 'package:fakestoreapi/services/http.dart';
+import 'package:fakestoreapi2/apis.dart';
+import 'package:fakestoreapi2/components/dialogs/error.dart';
+import 'package:fakestoreapi2/components/dialogs/error_snackbar.dart';
+import 'package:fakestoreapi2/components/dialogs/loading.dart';
+import 'package:fakestoreapi2/components/snackbar.dart';
+import 'package:fakestoreapi2/models/http_exception.dart';
+import 'package:fakestoreapi2/models/user.dart';
+import 'package:fakestoreapi2/router.dart';
+import 'package:fakestoreapi2/services/http.dart';
 
 class UserController extends ChangeNotifier {
   UserController();

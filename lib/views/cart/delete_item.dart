@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fakestoreapi/components/dialogs/cart_delete_dialog.dart';
-import 'package:fakestoreapi/controllers/cart.dart';
-import 'package:fakestoreapi/theme/light_theme.dart';
+import 'package:fakestoreapi2/components/dialogs/cart_delete_dialog.dart';
+import 'package:fakestoreapi2/controllers/cart.dart';
+import 'package:fakestoreapi2/theme/light_theme.dart';
 
 class DeleteItemCard extends StatelessWidget {
   const DeleteItemCard({

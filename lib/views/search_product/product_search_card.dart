@@ -1,6 +1,6 @@
-import 'package:fakestoreapi/controllers/home_controller.dart';
+import 'package:fakestoreapi2/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:fakestoreapi/theme/light_theme.dart';
+import 'package:fakestoreapi2/theme/light_theme.dart';
 
 class ProductSearchCard extends StatelessWidget {
   const ProductSearchCard({

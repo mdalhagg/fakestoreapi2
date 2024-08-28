@@ -5,12 +5,11 @@ class API {
   static String baseUrl = "https://fakestoreapi.com/";
   // static String imageBaseUrl = "https://tobabk.teknokeys.com/public/images/";
 
-
-
   static String auth = "auth/login";
   static String info = "users/";
   static String updateProfile = "users/";
   static String products = "products";
+  static String productDetails = "products/";
 
   // categories/
   static String productcategory = "products/categories";
@@ -20,8 +19,5 @@ class API {
   static String orderSubmit = "order/store";
 
   // product
-  static String productDetails = "product/details/";
   static String productCategory = "category/";
-
-
 }

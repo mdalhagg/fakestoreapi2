@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fakestoreapi/components/snackbar.dart';
-import 'package:fakestoreapi/controllers/cart.dart';
-import 'package:fakestoreapi/theme/light_theme.dart';
+import 'package:fakestoreapi2/components/snackbar.dart';
+import 'package:fakestoreapi2/controllers/cart.dart';
+import 'package:fakestoreapi2/theme/light_theme.dart';
 
 class DecrementButton extends StatelessWidget {
   const DecrementButton(

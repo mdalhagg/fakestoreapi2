@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:fakestoreapi/components/snackbar.dart';
-import 'package:fakestoreapi/controllers/cart.dart';
-import 'package:fakestoreapi/theme/light_theme.dart';
+import 'package:fakestoreapi2/components/snackbar.dart';
+import 'package:fakestoreapi2/controllers/cart.dart';
+import 'package:fakestoreapi2/theme/light_theme.dart';
 
-class CheckoutButton extends StatelessWidget {
+class CheckoutButton extends StatefulWidget {
   const CheckoutButton({
     super.key,
     required this.totalPrice,
@@ -15,25 +15,22 @@ class CheckoutButton extends StatelessWidget {
   final CartController cartController;
 
   @override
+  State<CheckoutButton> createState() => _CheckoutButtonState();
+}
+
+class _CheckoutButtonState extends State<CheckoutButton> {
+  @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            LightTheme.background.withOpacity(0.9),
-            LightTheme.background.withOpacity(0.5).withAlpha(100),
-            LightTheme.main.withOpacity(0.1).withAlpha(90),
-          ],
-        ),
+        color: LightTheme.background,
         borderRadius: const BorderRadius.vertical(
           top: Radius.circular(20),
         ),
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: LightTheme.textBlack.withOpacity(0.2),
+            color: LightTheme.textBlack.withOpacity(0.4),
             blurRadius: 10,
             offset: const Offset(0, -2),
           )
@@ -41,8 +38,9 @@ class CheckoutButton extends StatelessWidget {
       ),
       child: SafeArea(
         child: SizedBox(
-          height: 80,
+          height: 280,
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -50,54 +48,99 @@ class CheckoutButton extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   crossAxisAlignment: CrossAxisAlignment.center,
-                  //   children: [
-                  //     Text(
-                  //       'المجموع:',
-                  //       style: LightTheme.textStyle(
-                  //           fontSize: 16, color: LightTheme.textBlack),
-                  //     ),
-                  //     Text(
-                  //       '${total.toString()} ر.ي',
-                  //       style: LightTheme.textStyle(
-                  //           fontSize: 16, color: LightTheme.main),
-                  //     )
-                  //   ],
-                  // ),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   crossAxisAlignment: CrossAxisAlignment.center,
-                  //   children: [
-                  //     Text(
-                  //       'الخصم:',
-                  //       style: LightTheme.textStyle(
-                  //           fontSize: 16, color: LightTheme.textBlack),
-                  //     ),
-                  //     Text(
-                  //       '${discount.toString()} ر.ي',
-                  //       style: LightTheme.textStyle(
-                  //           fontSize: 16, color: LightTheme.main),
-                  //     )
-                  //   ],
-                  // ),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   crossAxisAlignment: CrossAxisAlignment.center,
-                  //   children: [
-                  //     Text(
-                  //       'سعر التوصيل:',
-                  //       style: LightTheme.textStyle(
-                  //           fontSize: 16, color: LightTheme.textBlack),
-                  //     ),
-                  //     Text(
-                  //       '${cartController.deliveryPrice.toString()} ر.ي',
-                  //       style: LightTheme.textStyle(
-                  //           fontSize: 16, color: LightTheme.main),
-                  //     )
-                  //   ],
-                  // ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'الاسم كامل:',
+                        style: LightTheme.textStyle(
+                            fontSize: 16, color: LightTheme.textBlack),
+                      ),
+                      Expanded(
+                        child: TextFormField(
+                          controller: widget.cartController.nameController,
+                          decoration: const InputDecoration(
+                            hintText: 'ادخل الاسم كامل',
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'رقم الهاتف:',
+                        style: LightTheme.textStyle(
+                            fontSize: 16, color: LightTheme.textBlack),
+                      ),
+                      Expanded(
+                        child: TextFormField(
+                          controller: widget.cartController.phoneController,
+                          decoration: const InputDecoration(
+                            hintText: 'ادخل رقم الهاتف',
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'الاسم العنوان:',
+                        style: LightTheme.textStyle(
+                            fontSize: 16, color: LightTheme.textBlack),
+                      ),
+                      Expanded(
+                        child: TextFormField(
+                          controller: widget.cartController.addressController,
+                          decoration: const InputDecoration(
+                            hintText: 'ادخل اسم العنوان',
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: DropdownButtonFormField(
+                          isExpanded: true,
+                          decoration: const InputDecoration(
+                            hintText: 'اختر طريقة الدفع',
+                          ),
+                          items: const [
+                            DropdownMenuItem(
+                              child: Text('بطاقة ائتمانية'),
+                              value: 'creditCard',
+                            ),
+                            DropdownMenuItem(
+                              child: Text('بطاقة خصوم'),
+                              value: 'discountCard',
+                            ),
+                            DropdownMenuItem(
+                              child: Text('نقدية'),
+                              value: 'cash',
+                            ),
+                          ],
+                          onChanged: (value) {
+                            widget.cartController.paymentController.text =
+                                value as String;
+                          },
+                        ),
+                      )
+                    ],
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -108,7 +151,7 @@ class CheckoutButton extends StatelessWidget {
                             fontSize: 16, color: LightTheme.textBlack),
                       ),
                       Text(
-                        '${totalPrice}',
+                        '${widget.totalPrice}',
                         style: LightTheme.textStyle(
                             fontSize: 16, color: LightTheme.main),
                       )
@@ -118,8 +161,8 @@ class CheckoutButton extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  if (cartController.cart?.isNotEmpty ?? false) {
-                    context.push('/checkout');
+                  if (widget.cartController.cart?.isNotEmpty ?? false) {
+                    widget.cartController.addOrder(context);
                   } else {
                     errorSnackbar(
                       context,

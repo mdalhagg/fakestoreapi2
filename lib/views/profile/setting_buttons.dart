@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
-import 'package:fakestoreapi/controllers/user.dart';
-import 'package:fakestoreapi/theme/light_theme.dart';
+import 'package:fakestoreapi2/controllers/user.dart';
+import 'package:fakestoreapi2/theme/light_theme.dart';
 
 class SettingCardButtons extends StatelessWidget {
   const SettingCardButtons({
@@ -52,7 +52,6 @@ class SettingCardButtons extends StatelessWidget {
             size: 20,
           ),
         ),
-       
       ],
     );
   }

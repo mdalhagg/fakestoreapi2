@@ -1,4 +1,4 @@
-package com.example.fakestoreapi
+package com.example.fakestoreapi2
 
 import io.flutter.embedding.android.FlutterActivity
 

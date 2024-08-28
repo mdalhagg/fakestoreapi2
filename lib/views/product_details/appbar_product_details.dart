@@ -2,9 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:fakestoreapi/router.dart';
-import 'package:fakestoreapi/views/product_details_screen.dart';
-import 'package:fakestoreapi/theme/light_theme.dart';
+import 'package:fakestoreapi2/router.dart';
+import 'package:fakestoreapi2/views/product_details_screen.dart';
+import 'package:fakestoreapi2/theme/light_theme.dart';
 
 class CustomAppBarCard extends StatefulWidget {
   const CustomAppBarCard({

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:fakestoreapi/components/snackbar.dart';
-import 'package:fakestoreapi/controllers/user.dart';
-import 'package:fakestoreapi/theme/light_theme.dart';
+import 'package:fakestoreapi2/components/snackbar.dart';
+import 'package:fakestoreapi2/controllers/user.dart';
+import 'package:fakestoreapi2/theme/light_theme.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

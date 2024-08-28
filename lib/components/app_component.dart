@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:fakestoreapi/theme/light_theme.dart';
+import 'package:fakestoreapi2/theme/light_theme.dart';
 
 class NoInternetCard extends StatelessWidget {
   const NoInternetCard({super.key, this.width});

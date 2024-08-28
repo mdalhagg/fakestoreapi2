@@ -7,10 +7,10 @@ import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:fakestoreapi/apis.dart';
-import 'package:fakestoreapi/components/snackbar.dart';
-import 'package:fakestoreapi/router.dart';
-import 'package:fakestoreapi/services/http.dart';
+import 'package:fakestoreapi2/apis.dart';
+import 'package:fakestoreapi2/components/snackbar.dart';
+import 'package:fakestoreapi2/router.dart';
+import 'package:fakestoreapi2/services/http.dart';
 
 class OrderController extends ChangeNotifier {
   OrderController();
@@ -131,6 +131,4 @@ class OrderController extends ChangeNotifier {
     );
     notifyListeners();
   }
-
- 
 }

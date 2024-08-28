@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fakestoreapi/controllers/user.dart';
-import 'package:fakestoreapi/router.dart';
-import 'package:fakestoreapi/views/profile/floating_profile_card.dart';
+import 'package:fakestoreapi2/controllers/user.dart';
+import 'package:fakestoreapi2/router.dart';
+import 'package:fakestoreapi2/views/profile/floating_profile_card.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});

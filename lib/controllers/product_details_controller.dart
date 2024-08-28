@@ -2,9 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:fakestoreapi/apis.dart';
-import 'package:fakestoreapi/models/product.dart';
-import 'package:fakestoreapi/services/http.dart';
+import 'package:fakestoreapi2/apis.dart';
+import 'package:fakestoreapi2/models/product.dart';
+import 'package:fakestoreapi2/services/http.dart';
 
 class ProductDetailsController extends ChangeNotifier {
   bool isLoading = false,
@@ -21,8 +21,9 @@ class ProductDetailsController extends ChangeNotifier {
     noData = false;
     hasError = false;
     notifyListeners();
+    print(API.productDetails + "${id}");
     await HTTPService.get(
-      API.productDetails + id.toString(),
+      API.productDetails + "${id}",
     ).then((value) {
       isLoading = false;
       if (value.isNotEmpty) {

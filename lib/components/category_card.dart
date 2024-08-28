@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fakestoreapi/theme/light_theme.dart';
+import 'package:fakestoreapi2/theme/light_theme.dart';
 
 class CategoryCard extends StatefulWidget {
   const CategoryCard(this.categories, this.index, {super.key});

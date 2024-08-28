@@ -3,9 +3,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:fakestoreapi/apis.dart';
-import 'package:fakestoreapi/models/product.dart';
-import 'package:fakestoreapi/services/http.dart';
+import 'package:fakestoreapi2/apis.dart';
+import 'package:fakestoreapi2/models/product.dart';
+import 'package:fakestoreapi2/services/http.dart';
 
 class ProductController extends ChangeNotifier {
   bool isLoading = false,
@@ -59,8 +59,7 @@ class ProductController extends ChangeNotifier {
       },
     );
     if (hasError) {
-      await HTTPService.getCachedResponse(url: API.products)
-          .then((value) {
+      await HTTPService.getCachedResponse(url: API.products).then((value) {
         if (value != null) {
           category = List.from(
             value['categories'].map(
@@ -91,5 +90,4 @@ class ProductController extends ChangeNotifier {
     }
     notifyListeners();
   }
-
 }

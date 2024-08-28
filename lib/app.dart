@@ -2,8 +2,8 @@ import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:fakestoreapi/router.dart';
-import 'package:fakestoreapi/theme/light_theme.dart';
+import 'package:fakestoreapi2/router.dart';
+import 'package:fakestoreapi2/theme/light_theme.dart';
 
 class App extends StatefulWidget {
   const App({
@@ -64,7 +64,6 @@ class _AppState extends State<App> {
               systemOverlayStyle: SystemUiOverlayStyle.dark,
             ),
           ),
-
         );
       },
     );

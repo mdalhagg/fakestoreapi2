@@ -1,13 +1,12 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:fakestoreapi/components/dialogs/cart_delete_dialog.dart';
-import 'package:fakestoreapi/components/snackbar.dart';
-import 'package:fakestoreapi/controllers/cart.dart';
-import 'package:fakestoreapi/models/product_cart.dart';
-import 'package:fakestoreapi/theme/light_theme.dart';
+import 'package:fakestoreapi2/components/dialogs/cart_delete_dialog.dart';
+import 'package:fakestoreapi2/components/snackbar.dart';
+import 'package:fakestoreapi2/controllers/cart.dart';
+import 'package:fakestoreapi2/models/product_cart.dart';
+import 'package:fakestoreapi2/theme/light_theme.dart';
 
 class ProductCartCard extends StatefulWidget {
   const ProductCartCard({super.key, required this.data, this.index});

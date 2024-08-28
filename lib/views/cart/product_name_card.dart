@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fakestoreapi/controllers/cart.dart';
-import 'package:fakestoreapi/theme/light_theme.dart';
+import 'package:fakestoreapi2/controllers/cart.dart';
+import 'package:fakestoreapi2/theme/light_theme.dart';
 
 class ProductNameCard extends StatelessWidget {
   const ProductNameCard(
@@ -11,7 +11,13 @@ class ProductNameCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(cartController.cart?[index].title ?? '',
-        style: LightTheme.textStyle(fontSize: 16));
+    return SizedBox(
+      width: 150,
+      child: Text(
+        cartController.cart?[index].title ?? '',
+        style: LightTheme.textStyle(fontSize: 16),
+        overflow: TextOverflow.ellipsis,
+      ),
+    );
   }
 }

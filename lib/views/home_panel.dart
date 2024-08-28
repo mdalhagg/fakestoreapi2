@@ -1,12 +1,12 @@
-import 'package:fakestoreapi/components/dialogs/login_dialog.dart';
-import 'package:fakestoreapi/views/profile_screen.dart';
+import 'package:fakestoreapi2/components/dialogs/login_dialog.dart';
+import 'package:fakestoreapi2/views/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:fakestoreapi/controllers/home_controller.dart';
-import 'package:fakestoreapi/router.dart';
-import 'package:fakestoreapi/theme/light_theme.dart';
-import 'package:fakestoreapi/views/home_screen.dart';
+import 'package:fakestoreapi2/controllers/home_controller.dart';
+import 'package:fakestoreapi2/router.dart';
+import 'package:fakestoreapi2/theme/light_theme.dart';
+import 'package:fakestoreapi2/views/home_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset('assets/logo.jpeg', width: 100),
+        title: Text('الرئيسية'),
         shadowColor: Colors.transparent,
         actions: [
           Builder(builder: (BuildContext context) {
@@ -79,13 +79,11 @@ class _HomePageState extends State<HomePage> {
                 ),
                 IconButton(
                   onPressed: () async {
-                    
-                        context.push('/cart');
-                    
+                    context.push('/cart');
                   },
-                  icon:  SvgPicture.asset(
-                          'assets/svg/cart.svg',
-                        ),
+                  icon: SvgPicture.asset(
+                    'assets/svg/cart.svg',
+                  ),
                 ),
               ],
             );
@@ -164,7 +162,9 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         SvgPicture.asset(
                           'assets/svg/account.svg',
-                          color: _selectedIndex == 4 ? LightTheme.main : LightTheme.textBlack,
+                          color: _selectedIndex == 4
+                              ? LightTheme.main
+                              : LightTheme.textBlack,
                           width: 20,
                         ),
                         const SizedBox(

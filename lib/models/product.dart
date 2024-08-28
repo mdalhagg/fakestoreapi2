@@ -19,7 +19,7 @@ class Product {
   Product.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     title = json['title'];
-    price = json['price'];
+    price = double.tryParse("${json['price']}");
     description = json['description'];
     category = json['category'];
     image = json['image'];
@@ -29,14 +29,14 @@ class Product {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title'] = this.title;
-    data['price'] = this.price;
-    data['description'] = this.description;
-    data['category'] = this.category;
-    data['image'] = this.image;
-    if (this.rating != null) {
-      data['rating'] = this.rating!.toJson();
+    data['id'] = id;
+    data['title'] = title;
+    data['price'] = price;
+    data['description'] = description;
+    data['category'] = category;
+    data['image'] = image;
+    if (rating != null) {
+      data['rating'] = rating!.toJson();
     }
     return data;
   }
@@ -44,19 +44,19 @@ class Product {
 
 class Rating {
   double? rate;
-  int? count;
+  double? count;
 
   Rating({this.rate, this.count});
 
   Rating.fromJson(Map<String, dynamic> json) {
-    rate = json['rate'];
-    count = json['count'];
+    rate = double.tryParse("${json['rate']}");
+    count = double.tryParse("${json['count']}");
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['rate'] = this.rate;
-    data['count'] = this.count;
+    data['rate'] = rate;
+    data['count'] = count;
     return data;
   }
 }
