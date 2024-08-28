@@ -76,7 +76,7 @@ class _ProductCartCardState extends State<ProductCartCard> {
                       );
                     },
                     errorWidget: (context, url, error) => Image.asset(
-                      'assets/img/splash/logo.png',
+                      'assets/logo.jpeg',
                       width: LightTheme.mediaQueryData.size.width * 0.5,
                     ),
                     fit: BoxFit.contain,

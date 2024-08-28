@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:fakestoreapi/models/product_cart.dart';
+import 'package:fakestoreapi/models/user.dart';
 
 class SettingsService {
   var settingsBox = Hive.box('settings');
@@ -43,7 +44,27 @@ class SettingsService {
     return data != null ? data == 'true' : false;
   }
 
+  Future<User?> user() async {
+    var data = await userBox.get('user');
+    if (data != null) {
+      data = data?.replaceAll("\\", "");
+      data = data.substring(1, data.length - 1);
+      // log(data.toString());
+      User? userData;
+      try {
+        userData = User.fromJson(
+          jsonDecode(data),
+        );
+      } catch (e) {
+        await userBox.delete('user');
+        return null;
+      }
 
+      return userData;
+    } else {
+      return null;
+    }
+  }
 
   // Future http(url) async {
   //   var httpBox = Hive.box(url);
@@ -86,7 +107,17 @@ class SettingsService {
         locale.languageCode,
       );
 
+  Future<void> updateUser(String data) async => await userBox.put(
+        'user',
+        jsonEncode(data),
+      );
 
+  Future<void> updateIntro(bool status) async => await settingsBox.put(
+        'intro',
+        status.toString(),
+      );
+
+  Future<void> removeUser() async => await userBox.clear();
 
   Future<String?> referralCode() async => await settingsBox.get(
         'referralCode',
@@ -156,6 +187,15 @@ class SettingsService {
       contain = cart.where(
         (element) => element.productId == object.productId,
       );
+      if (contain.isNotEmpty) {
+        for (var element in contain) {
+          element.quantity = object.quantity;
+          var back = cart.map((e) => e.toJson()).toList();
+          cartBox.put('cart', jsonEncode(back));
+          isDone = true;
+          break;
+        }
+      }
       if (!isDone) {
         // log("item not found, adding item...");
         cart.add(object);

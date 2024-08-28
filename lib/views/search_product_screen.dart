@@ -31,7 +31,7 @@ class SearchProductsScreenState extends State<SearchProductsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Image.asset('assets/img/logo.png', width: 100),
+          title: Image.asset('assets/logo.jpeg', width: 100),
           shadowColor: Colors.transparent,
           actions: [
             Builder(builder: (BuildContext context) {

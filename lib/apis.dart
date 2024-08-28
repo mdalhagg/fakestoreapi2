@@ -7,6 +7,9 @@ class API {
 
 
 
+  static String auth = "auth/login";
+  static String info = "users/";
+  static String updateProfile = "users/";
   static String products = "products";
 
   // categories/

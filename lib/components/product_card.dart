@@ -57,7 +57,7 @@ class _ProductCardState extends State<ProductCard> {
                       ? ClipRRect(
                           borderRadius: BorderRadius.circular(15),
                           child: const Image(
-                            image: AssetImage('assets/img/product_logo.webp'),
+                            image: AssetImage('assets/logo.jpeg'),
                           ),
                         )
                       : CachedNetworkImage(
@@ -88,7 +88,7 @@ class _ProductCardState extends State<ProductCard> {
                           errorWidget: (context, url, error) => ClipRRect(
                             borderRadius: BorderRadius.circular(15),
                             child: const Image(
-                              image: AssetImage('assets/img/product_logo.webp'),
+                              image: AssetImage('assets/logo.jpeg'),
                               fit: BoxFit.cover,
                             ),
                           ),

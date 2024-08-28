@@ -25,7 +25,7 @@ class _AllCategoryCardState extends State<AllCategoryCard> {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(50),
             child: Image.asset(
-              'assets/img/product_logo.webp',
+              'assets/logo.jpeg',
               width: LightTheme.mediaQueryData.size.width * 0.5,
             ),
           ),

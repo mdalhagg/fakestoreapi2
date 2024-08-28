@@ -1,3 +1,5 @@
+import 'package:fakestoreapi/components/dialogs/login_dialog.dart';
+import 'package:fakestoreapi/views/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
@@ -47,11 +49,12 @@ class _HomePageState extends State<HomePage> {
 
     final List<Widget> bottomBarPages = [
       HomeScreen(controller: _homeController),
+      const ProfileScreen(),
     ];
 
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset('assets/img/logo.png', width: 100),
+        title: Image.asset('assets/logo.jpeg', width: 100),
         shadowColor: Colors.transparent,
         actions: [
           Builder(builder: (BuildContext context) {
@@ -143,7 +146,38 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                
+                InkWell(
+                  onTap: () {
+                    if (settingsController.user == null) {
+                      // dialog for login
+                      LoginDialog().loginDialogConfirm(context);
+                      // context.push('/login');
+                    } else {
+                      onButtonPressed(1);
+                    }
+                  },
+                  child: SizedBox(
+                    height: 80,
+                    width: 60,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          'assets/svg/account.svg',
+                          color: _selectedIndex == 4 ? LightTheme.main : LightTheme.textBlack,
+                          width: 20,
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'حسابي',
+                          style: LightTheme.textStyle(fontSize: 13),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
